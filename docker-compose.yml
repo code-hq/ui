@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+    app:
+        build:
+            context: ./docker/dev
+            args:
+                UID: ${DEV_UID:-1000}
+        container_name: codehq-ui-app
+        ports:
+            - 8080:8080
+        volumes:
+            - .:/app
+        environment:
+            HOST: 0.0.0.0
