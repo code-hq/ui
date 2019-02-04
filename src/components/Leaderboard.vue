@@ -19,9 +19,15 @@
     >
       <template slot="items" slot-scope="props">
         <td>{{ props.item.name }}</td>
-        <td class="text-xs-right">{{ props.item.coverage }}</td>
-        <td class="text-xs-right">{{ props.item.loc }}</td>
-        <td class="text-xs-right">{{ props.item.score }}</td>
+        <td class="text-xs">{{ props.item.coverage }}</td>
+        <td class="text-xs">{{ props.item.loc }}</td>
+        <td class="text-xs">{{ props.item.score }}</td>
+        <td class="text-xs">
+          {{ props.item.movement }}
+          <v-icon color="success" v-if="props.item.movement > 0">arrow_drop_up</v-icon>
+          <v-icon color="error" v-if="props.item.movement < 0">arrow_drop_down</v-icon>
+        </td>
+
       </template>
       <v-alert slot="no-results" :value="true" color="error" icon="warning">
         Your search for "{{ search }}" found no results.
@@ -48,7 +54,8 @@ export default {
         },
         { text: 'Test Coverage', value: 'coverage' },
         { text: 'Lines of Code', value: 'loc' },
-        { text: 'Score', value: 'score' }
+        { text: 'Score', value: 'score' },
+        { text: 'Movement', value: 'movement' }
       ],
       entries: [
         {
@@ -56,14 +63,24 @@ export default {
           name: 'CodeHQ',
           coverage: '46%',
           loc: 8427,
-          score: 85.63
+          score: 85.63,
+          movement: +2
         },
         {
           value: false,
-          name: 'Foo bar',
+          name: 'Note Mate',
           coverage: '46%',
           loc: 8427,
-          score: 85.63
+          score: 85.63,
+          movement: 0
+        },
+        {
+          value: false,
+          name: 'Awesome App',
+          coverage: '46%',
+          loc: 8427,
+          score: 85.63,
+          movement: -2
         }
       ]
     }
