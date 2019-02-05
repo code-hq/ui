@@ -5,7 +5,7 @@ services:
         build:
             context: ./docker/dev
             args:
-                UID: ${DEV_UID:-1000}
+                UID: ${DEV_UID}
         container_name: codehq-ui-app
         ports:
             - 8080:8080
