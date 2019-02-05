@@ -7,8 +7,8 @@
 
 <script>
 // @ is an alias to /src
-import Leaderboard from '@/components/Leaderboard.vue'
-import ContributorList from '@/components/ContributorList.vue'
+import Leaderboard from '@/ui/components/Leaderboard.vue'
+import ContributorList from '@/ui/components/ContributorList.vue'
 
 export default {
   name: 'home',
