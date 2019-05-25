@@ -1,0 +1,10 @@
+version: '3.7'
+
+services:
+  app:
+    image: codehq-ui/app
+    build:
+      context: ./client
+      dockerfile: docker/prod/Dockerfile
+    ports:
+      - 8080:8080
